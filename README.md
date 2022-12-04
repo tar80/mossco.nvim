@@ -19,7 +19,6 @@ Plugins supports provided by onenord. And,
 - [Fuzzy Motion](https://github.com/yuki-yano/fuzzy-motion.vim)
 - [Feline](https://github.com/feline-nvim/feline.nvim)
 
-
 ## Configuration
 
 This is an example of setup with the default values.  
@@ -47,12 +46,13 @@ require("mossco").setup({
         eob_lines = false -- Hide the end-of-buffer lines
     },
     -- Overwrite default highlight groups. Follow nvim_set_hl()
-    -- Example: highlight_group = {fg = "white", bg = "black", underline = true}
+    -- Example: highlight_group = {fg = "white", bg = "black", style = "underline"}
     custom_highlights = {},
     plugins = {
         lsp = true,
         treesitter = false,
         treesitter_context = false,
+        eft = false,
         gina = false,
         fuzzy_motion = false,
         cmp = false,
@@ -83,7 +83,7 @@ require("mossco").setup({
 
 If you want to apply the Mossco theme to Feline.  
 
-```
+```lua
 local colors = require("feline.themes.mossco")
 
 require("feline").setup({
@@ -92,7 +92,7 @@ require("feline").setup({
 })
 ```
 
-## Thanks
+## Credits
 
 The mossco created based on onenord. Click here to check it out!
 

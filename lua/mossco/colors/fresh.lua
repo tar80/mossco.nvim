@@ -1,7 +1,8 @@
 local colors = {
   fg = "#CBCBCB",
   fg_light = "#FFFFFF",
-  bg = "#0e2019",
+  bg = "#102C27",
+  -- bg = "#0e2019",
   dark_gray = "#5F6365",
   gray = "#8F959D",
   dark_cyan = "#83A9AE",

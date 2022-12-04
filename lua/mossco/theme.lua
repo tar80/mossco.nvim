@@ -48,7 +48,7 @@ function theme.highlights(colors, config)
             -- any special symbol
             Special = {fg = colors.pink},
             -- special character in a constant
-            SpecialChar = {fg = colors.light_red},
+            SpecialChar = {fg = colors.light_green},
             -- you can use CTRL-] on this
             Tag = {fg = colors.green},
             -- character that needs attention like , or .
@@ -228,7 +228,7 @@ function theme.highlights(colors, config)
             -- warning messages
             WarningMsg = {fg = colors.warn},
             -- "nbsp", "space", "tab" and "trail" in 'listchars'
-            Whitespace = {fg = colors.gray},
+            Whitespace = {fg = colors.dark_gray, bg = colors.border},
             -- current match in 'wildmenu' completion
             WildMenu = {fg = colors.olive, bg = colors.none, style = "bold"},
             -- window bar of current window
@@ -513,6 +513,10 @@ function theme.highlights(colors, config)
         -- Plugins highlight groups
         local p = {}
 
+        if config.plugins.eft then
+            p["EftChar"] = {fg = colors.orange, style = "underline"}
+            p["EftSubChar"] = {fg = colors.dark_orange, style = "underline"}
+        end
         if config.plugins.gina then
             p["GinaActionMarkSelected"] = {fg = colors.green}
         end
@@ -526,7 +530,7 @@ function theme.highlights(colors, config)
             p["CmpItemAbbr"] = {fg = colors.fg}
             p["CmpItemAbbrDeprecated"] = {fg = colors.fg}
             p["CmpItemAbbrMatch"] = {fg = colors.pink, style = "bold"}
-            p["CmpItemAbbrMatchFuzzy"] = {fg = colors.pink, underline = true}
+            p["CmpItemAbbrMatchFuzzy"] = {fg = colors.pink, style = "underline"}
             p["CmpItemMenu"] = {fg = colors.dark_gray}
             p["CmpItemKindText"] = {fg = colors.cyan}
             p["CmpItemKindMethod"] = {fg = colors.olive}
