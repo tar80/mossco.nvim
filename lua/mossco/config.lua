@@ -25,6 +25,7 @@ local defaults = {
   plugins = {
     lsp = true,
     treesitter = false,
+    eft = false,
     gina = false,
     fuzzy_motion = false,
     cmp = false,
