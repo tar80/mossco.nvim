@@ -18,6 +18,7 @@ Plugins supports provided by onenord. And,
 - [Gina](https://github.com/lambdalisue/gina.vim)
 - [Fuzzy Motion](https://github.com/yuki-yano/fuzzy-motion.vim)
 - [Feline](https://github.com/feline-nvim/feline.nvim)
+- [Vim-eft](https://github.com/hrsh7th/vim-eft)
 
 ## Configuration
 
