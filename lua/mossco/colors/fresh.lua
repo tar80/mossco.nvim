@@ -1,7 +1,8 @@
 local colors = {
   fg = "#CBCBCB",
   fg_light = "#FFFFFF",
-  bg = "#0e2019",
+  bg =          "#001B1B",
+  bg_light =    "#002222",
   dark_gray = "#5F6365",
   gray = "#8F959D",
   dark_cyan = "#70A6AB",
@@ -32,12 +33,12 @@ colors.info = colors.blue
 colors.hint = colors.purple
 
 colors.diff_add = colors.blue
-colors.diff_add_bg = "#0A2E3B"
+colors.diff_add_bg = "#072932"
 colors.diff_change = colors.green
-colors.diff_change_bg = "#1C392A"
+colors.diff_change_bg = "#0A2C25"
 colors.diff_remove = colors.red
-colors.diff_remove_bg = "#36182C"
-colors.diff_text_bg = "#264A39"
+colors.diff_remove_bg = "#2F1627"
+colors.diff_text_bg = "#175242"
 
 colors.active = "#11384D"
 colors.float = "#134046"
