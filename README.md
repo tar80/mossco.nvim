@@ -19,6 +19,7 @@ Plugins supports provided by onenord. And,
 - [Fuzzy Motion](https://github.com/yuki-yano/fuzzy-motion.vim)
 - [Feline](https://github.com/feline-nvim/feline.nvim)
 - [Vim-eft](https://github.com/hrsh7th/vim-eft)
+- [Conflict-marker](https://github.com/rhysd/conflict-marker.vim)
 
 ## Configuration
 
@@ -53,6 +54,7 @@ require("mossco").setup({
         lsp = true,
         treesitter = false,
         treesitter_context = false,
+        confilct_marker = false,
         eft = false,
         gina = false,
         fuzzy_motion = false,
@@ -93,7 +95,7 @@ require("feline").setup({
 })
 ```
 
-## Credits
+## Credit
 
 The mossco created based on onenord. Click here to check it out!
 

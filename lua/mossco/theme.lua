@@ -226,9 +226,9 @@ function theme.highlights(colors, config)
 
     -- Set non-current background
     if config.fade_nc then
-      editor.NormalNC["bg"] = colors.highlight
-      editor.NormalFloat["bg"] = colors.active
-      editor.FloatBorder["bg"] = colors.active
+      editor.NormalNC["bg"] = colors.bg
+      editor.NormalFloat["bg"] = colors.highlight
+      editor.FloatBorder["bg"] = colors.highlight
     end
 
     -- Set transparent background
@@ -259,11 +259,11 @@ function theme.highlights(colors, config)
   local function load_treesitter()
     local ex = {}
 
-    if config.plugins.treesitter then
+    if config.plugins.treesitter and vim.fn.has("nvim-0.8") then
       -- TreeSitter highlight groups
       ex = {
         -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-        ["@attribute"] = { fg = colors.purple },
+        ["@attribute"] = { fg = colors.gray },
         -- Boolean literals: `True` and `False` in Python.
         ["@boolean"] = { fg = colors.orange },
         -- Character literals: `'a'` in C.
@@ -273,7 +273,7 @@ function theme.highlights(colors, config)
         -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
         ["@conditional"] = { fg = colors.purple, style = config.styles.keywords },
         -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-        ["@constant"] = { fg = colors.cyan },
+        ["@constant"] = { fg = colors.olive },
         -- Built-in constant values: `nil` in Lua.
         ["@constant.builtin"] = { fg = colors.orange },
         -- Constants defined by macros: `NULL` in C.
@@ -286,29 +286,29 @@ function theme.highlights(colors, config)
         -- Exception related keywords: `try`, `except`, `finally` in Python.
         ["@exception"] = { fg = colors.purple },
         -- Object and struct fields.
-        ["@field"] = { fg = colors.blue },
+        ["@field"] = { fg = colors.cyan },
         -- Floating-point number literals.
         ["@float"] = { fg = colors.orange },
         -- Function calls and definitions.
-        ["@function"] = { fg = colors.blue, style = config.styles.functions },
+        ["@function"] = { fg = colors.cyan, style = config.styles.functions },
         -- Built-in functions: `print` in Lua.
         ["@function.builtin"] = { fg = colors.cyan, style = config.styles.functions },
         -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
-        ["@function.macro"] = { fg = colors.blue },
+        ["@function.macro"] = { fg = colors.dark_cyan },
         -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-        ["@include"] = { fg = colors.blue },
+        ["@include"] = { fg = colors.dark_cyan },
         -- Keywords that don't fit into other categories.
-        ["@keyword"] = { fg = colors.purple, style = config.styles.keywords },
+        ["@keyword"] = { fg = colors.blue, style = config.styles.keywords },
         -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-        ["@keyword.function"] = { fg = colors.purple, style = config.styles.keywords },
+        ["@keyword.function"] = { fg = colors.olive, style = config.styles.keywords },
         -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
-        ["@keyword.operator"] = { fg = colors.purple },
+        ["@keyword.operator"] = { fg = colors.pink },
         -- Keywords like `return` and `yield`.
-        ["@keyword.return"] = { fg = colors.purple },
+        ["@keyword.return"] = { fg = colors.olive },
         -- GOTO labels: `label:` in C, and `::label::` in Lua.
-        ["@label"] = { fg = colors.purple },
+        ["@label"] = { fg = colors.cyan },
         -- Method calls and definitions.
-        ["@method"] = { fg = colors.blue, style = config.styles.functions },
+        ["@method"] = { fg = colors.gray, style = config.styles.functions },
         -- Identifiers referring to modules and namespaces.
         ["@namespace"] = { fg = colors.olive },
         -- Numeric literals that don't fit into other categories.
@@ -316,11 +316,11 @@ function theme.highlights(colors, config)
         -- Binary or unary operators: `+`, and also `->` and `*` in C.
         ["@operator"] = { fg = colors.pink },
         -- Parameters of a function.
-        ["@parameter"] = { fg = colors.orange },
+        ["@parameter"] = { fg = colors.blue },
         -- References to parameters of a function.
         ["@parameter.reference"] = { fg = colors.red },
         -- Same as `TSField`.
-        ["@property"] = { fg = colors.blue },
+        ["@property"] = { fg = colors.fg },
         -- Punctuation delimiters: Periods, commas, semicolons, etc.
         ["@punctuation.delimiter"] = { fg = colors.dark_olive },
         -- Brackets, braces, parentheses, etc.
@@ -340,13 +340,13 @@ function theme.highlights(colors, config)
         -- Tags like HTML tag names.
         ["@tag"] = { fg = colors.olive },
         -- HTML tag attributes.
-        ["@tag.attribute"] = { fg = colors.blue },
+        ["@tag.attribute"] = { fg = colors.dark_cyan },
         -- Tag delimiters like `<` `>` `/`.
         ["@tag.delimiter"] = { fg = colors.dark_olive },
         -- Non-structured text. Like text in a markup language.
         ["@text"] = { fg = colors.fg },
         -- Text to be represented in bold.
-        ["@text.strong"] = { fg = colors.purple, style = "bold" },
+        ["@text.strong"] = { fg = colors.dark_cyan, style = "bold" },
         -- Text to be represented with emphasis.
         ["@text.emphasis"] = { fg = colors.olive, style = "italic" },
         -- Text to be represented with an underline.
@@ -360,7 +360,7 @@ function theme.highlights(colors, config)
         -- Math environments like LaTeX's `$ ... $`
         ["@text.math"] = { fg = colors.fg },
         -- Footnotes, text references, citations, etc.
-        ["@text.reference"] = { fg = colors.purple },
+        ["@text.reference"] = { fg = colors.gray },
         -- Text environments of markup languages.
         ["@text.environment"] = { fg = colors.fg },
         -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
@@ -376,7 +376,7 @@ function theme.highlights(colors, config)
         -- Built-in types: `i32` in Rust.
         ["@type.builtin"] = { fg = colors.orange },
         -- Variable names that don't fit into other categories.
-        ["@variable"] = { fg = colors.fg, style = config.styles.variables },
+        ["@variable"] = { fg = colors.dark_cyan, style = config.styles.variables },
         -- Variable names defined by the language: `this` or `self` in Javascript.
         ["@variable.builtin"] = { fg = colors.red, style = config.styles.variables },
       }
@@ -514,6 +514,16 @@ function theme.highlights(colors, config)
     -- Plugins highlight groups
     local p = {}
 
+    if config.plugins.conflict_marker then
+      vim.g.conflict_marker_highlight_group = ""
+      p["ConflictMarkerBegin"] = { fg = colors.fg_light, bg = colors.dark_green }
+      p["ConflictMarkerOurs"] = { fg = colors.green, bg = colors.diff_change_bg }
+      p["ConflictMarkerTheirs"] = { fg = colors.blue, bg = colors.diff_add_bg }
+      p["ConflictMarkerEnd"] = { fg = colors.fg_light, bg = colors.dark_blue }
+      p["ConflictMarkerSeparator"] = { fg = colors.fg_light, bg = colors.dark_pink }
+      p["ConflictMarkerCommonAncestors"] = { fg = colors.fg_light, bg = colors.dark_pink }
+      p["ConflictMarkerCommonAncestorsHunk"] = { fg = colors.dark_pink, bg = colors.diff_remove_bg }
+    end
     if config.plugins.eft then
       p["EftChar"] = { fg = colors.orange, style = "underline" }
       p["EftSubChar"] = { fg = colors.dark_orange, style = "underline" }
@@ -560,6 +570,7 @@ function theme.highlights(colors, config)
       p["DashboardFooter"] = { fg = colors.green, style = "italic" }
     end
     if config.plugins.notify then
+        p["NotifyBackground"] = { bg = "#000000" }
       p["NotifyERRORBorder"] = { fg = colors.error }
       p["NotifyWARNBorder"] = { fg = colors.warn }
       p["NotifyINFOBorder"] = { fg = colors.info }
@@ -626,8 +637,8 @@ function theme.highlights(colors, config)
       p["TelescopePromptBorder"] = { fg = colors.gray, bg = colors.bg }
       p["TelescopeResultsBorder"] = { fg = colors.gray, bg = colors.bg }
       p["TelescopePreviewBorder"] = { fg = colors.gray, bg = colors.bg }
-      p["TelescopeSelectionCaret"] = { fg = colors.cyan, bg = colors.highlight }
-      p["TelescopeSelection"] = { bg = colors.highlight }
+      p["TelescopeSelectionCaret"] = { fg = colors.cyan, bg = colors.selection }
+      p["TelescopeSelection"] = { bg = colors.selection }
       p["TelescopeMultiIcon"] = { fg = colors.green }
       p["TelescopeMatching"] = { fg = colors.pink }
     end

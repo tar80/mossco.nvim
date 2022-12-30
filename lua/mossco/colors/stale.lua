@@ -28,16 +28,16 @@ local colors = {
 -- more semantically meaningful colors
 colors.error = colors.pink
 colors.warn = colors.olive
-colors.info = colors.gray
+colors.info = colors.blue
 colors.hint = colors.purple
 
 colors.diff_add = colors.blue
-colors.diff_add_bg = "#0A2E3B"
+colors.diff_add_bg = "#0E2132"
 colors.diff_change = colors.green
-colors.diff_change_bg = "#1C392A"
+colors.diff_change_bg = "#0C271B"
 colors.diff_remove = colors.red
-colors.diff_remove_bg = "#36182C"
-colors.diff_text_bg = "#264A39"
+colors.diff_remove_bg = "#251824"
+colors.diff_text_bg = "#1A4E3B"
 
 colors.active = "#11384D"
 colors.float = "#134046"
