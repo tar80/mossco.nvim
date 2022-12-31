@@ -15,11 +15,12 @@ and optimized for mossy green background.
 
 Plugins supports provided by onenord. And,
 
-- [Gina](https://github.com/lambdalisue/gina.vim)
+- [Agit](https://github.com/cohama/agit.vim)
+- [Conflict-marker](https://github.com/rhysd/conflict-marker.vim)
 - [Fuzzy Motion](https://github.com/yuki-yano/fuzzy-motion.vim)
 - [Feline](https://github.com/feline-nvim/feline.nvim)
+- [Gina](https://github.com/lambdalisue/gina.vim)
 - [Vim-eft](https://github.com/hrsh7th/vim-eft)
-- [Conflict-marker](https://github.com/rhysd/conflict-marker.vim)
 
 ## Configuration
 
@@ -54,6 +55,7 @@ require("mossco").setup({
         lsp = true,
         treesitter = false,
         treesitter_context = false,
+        agit = false,
         confilct_marker = false,
         eft = false,
         gina = false,

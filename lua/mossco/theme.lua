@@ -15,7 +15,7 @@ function theme.highlights(colors, config)
       -- struct, union, enum, etc.
       Structure = { fg = colors.purple },
       -- any constant
-      Constant = { fg = colors.blue },
+      Constant = { fg = colors.olive },
       -- any character constant: 'c', '\n'
       Character = { fg = colors.green },
       -- a number constant: 5
@@ -25,27 +25,27 @@ function theme.highlights(colors, config)
       -- a floating point constant: 2.3e10
       Float = { fg = colors.orange },
       -- any statement
-      Statement = { fg = colors.purple },
+      Statement = { fg = colors.blue },
       -- case, default, etc.
-      Label = { fg = colors.purple },
+      Label = { fg = colors.gray },
       -- sizeof", "+", "*", etc.
-      Operator = { fg = colors.purple },
+      Operator = { fg = colors.pink },
       -- try, catch, throw
       Exception = { fg = colors.purple },
       -- generic Preprocessor
       PreProc = { fg = colors.purple },
       -- preprocessor #include
-      Include = { fg = colors.blue },
+      Include = { fg = colors.cark_cyan },
       -- preprocessor #define
-      Define = { fg = colors.red },
+      Define = { fg = colors.dark_cyan },
       -- same as Define
-      Macro = { fg = colors.red },
+      Macro = { fg = colors.dark_cyan },
       -- A typedef
       Typedef = { fg = colors.purple },
       -- preprocessor #if, #else, #endif, etc.
       PreCondit = { fg = colors.purple },
       -- any special symbol
-      Special = { fg = colors.pink },
+      Special = { fg = colors.dark_olive },
       -- special character in a constant
       SpecialChar = { fg = colors.light_green },
       -- you can use CTRL-] on this
@@ -68,13 +68,13 @@ function theme.highlights(colors, config)
       -- normal if, then, else, endif, switch, etc.
       Conditional = { fg = colors.purple, style = config.styles.keywords },
       -- normal for, do, while, etc.
-      Keyword = { fg = colors.purple, style = config.styles.keywords },
+      Keyword = { fg = colors.blue, style = config.styles.keywords },
       -- normal any other keyword
       Repeat = { fg = colors.purple, style = config.styles.keywords },
       -- normal function names
-      Function = { fg = colors.blue, style = config.styles.functions },
+      Function = { fg = colors.yellow, style = config.styles.functions },
       -- any variable name
-      Identifier = { fg = colors.green, style = config.styles.variables },
+      Identifier = { fg = colors.fg, style = config.styles.variables },
       -- any string
       String = { fg = colors.green, bg = colors.bg, config.styles.strings },
     }
@@ -226,7 +226,7 @@ function theme.highlights(colors, config)
 
     -- Set non-current background
     if config.fade_nc then
-      editor.NormalNC["bg"] = colors.bg
+      editor.NormalNC["bg"] = colors.bg_light
       editor.NormalFloat["bg"] = colors.highlight
       editor.FloatBorder["bg"] = colors.highlight
     end
@@ -514,6 +514,21 @@ function theme.highlights(colors, config)
     -- Plugins highlight groups
     local p = {}
 
+    if config.plugins.agit then
+      p["agitTree"] = { fg = colors.gray }
+      p["agitRef"] = { fg = colors.dark_cyan }
+      p["agitRemote"] = { fg = colors.dark_cyan }
+      p["agitHash"] = { fg = colors.blue }
+      p["agitHead"] = { fg = colors.pink }
+      p["agitDate"] = { fg = colors.purple }
+      p["agitDateMark"] = { fg = colors.fg }
+      p["agitLog"] = { fg = colors.fg }
+      p["agitStatAdded"] = { fg = colors.diff_change }
+      p["agitStatRemoved"] = { fg = colors.diff_remove }
+      p["agitStatMessage"] = { fg = colors.fg }
+      p["agitDiffAdd"] = { fg = colors.diff_change, bg = colors.diff_change_bg }
+      p["agitDiffRemove"] = { fg = colors.diff_remove, bg = colors.diff_remove_bg }
+    end
     if config.plugins.conflict_marker then
       vim.g.conflict_marker_highlight_group = ""
       p["ConflictMarkerBegin"] = { fg = colors.fg_light, bg = colors.dark_green }
