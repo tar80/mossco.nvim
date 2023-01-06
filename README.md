@@ -64,7 +64,6 @@ require("mossco").setup({
         dashboard = false,
         notify = false,
         trouble = false,
-        diff = false,
         neogit = false,
         gitgutter = false,
         gitsigns = false,

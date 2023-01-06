@@ -35,7 +35,7 @@ function theme.highlights(colors, config)
       -- generic Preprocessor
       PreProc = { fg = colors.purple },
       -- preprocessor #include
-      Include = { fg = colors.cark_cyan },
+      Include = { fg = colors.dark_cyan },
       -- preprocessor #define
       Define = { fg = colors.dark_cyan },
       -- same as Define
@@ -59,7 +59,7 @@ function theme.highlights(colors, config)
       -- text that stands out, HTML links
       Underlined = { fg = colors.green, style = "underline" },
       -- left blank, hidden
-      Ignore = { fg = colors.cyan, bg = colors.bg, style = "bold" },
+      Ignore = { fg = colors.gray, bg = colors.bg, style = "bold" },
       -- any erroneous construct
       Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -77,6 +77,15 @@ function theme.highlights(colors, config)
       Identifier = { fg = colors.fg, style = config.styles.variables },
       -- any string
       String = { fg = colors.green, bg = colors.bg, config.styles.strings },
+      -- diff
+      diffAdded = { fg = colors.diff_add },
+      diffRemoved = { fg = colors.diff_remove },
+      diffChanged = { fg = colors.diff_change },
+      diffOldFile = { fg = colors.yellow },
+      diffNewFile = { fg = colors.orange },
+      diffFile = { fg = colors.blue },
+      diffLine = { fg = colors.light_gray },
+      diffIndexLine = { fg = colors.purple },
     }
 
     return syntax
@@ -427,6 +436,7 @@ function theme.highlights(colors, config)
         markdownUrl = { fg = colors.cyan, style = "underline" },
       }
     end
+
     return ex
   end
 
@@ -585,7 +595,7 @@ function theme.highlights(colors, config)
       p["DashboardFooter"] = { fg = colors.green, style = "italic" }
     end
     if config.plugins.notify then
-        p["NotifyBackground"] = { bg = "#000000" }
+      p["NotifyBackground"] = { bg = "#000000" }
       p["NotifyERRORBorder"] = { fg = colors.error }
       p["NotifyWARNBorder"] = { fg = colors.warn }
       p["NotifyINFOBorder"] = { fg = colors.info }
@@ -606,16 +616,6 @@ function theme.highlights(colors, config)
       p["TroubleCount"] = { fg = colors.purple }
       p["TroubleNormal"] = { fg = colors.fg }
       p["TroubleText"] = { fg = colors.fg }
-    end
-    if config.plugins.diff then
-      p["diffAdded"] = { fg = colors.diff_add }
-      p["diffRemoved"] = { fg = colors.diff_remove }
-      p["diffChanged"] = { fg = colors.diff_change }
-      p["diffOldFile"] = { fg = colors.yellow }
-      p["diffNewFile"] = { fg = colors.orange }
-      p["diffFile"] = { fg = colors.blue }
-      p["diffLine"] = { fg = colors.light_gray }
-      p["diffIndexLine"] = { fg = colors.purple }
     end
     if config.plugins.neogit then
       p["NeogitBranch"] = { fg = colors.purple }
