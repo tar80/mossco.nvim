@@ -295,7 +295,7 @@ function theme.highlights(colors, config)
         -- Exception related keywords: `try`, `except`, `finally` in Python.
         ["@exception"] = { fg = colors.purple },
         -- Object and struct fields.
-        ["@field"] = { fg = colors.cyan },
+        ["@field"] = { fg = colors.fg },
         -- Floating-point number literals.
         ["@float"] = { fg = colors.orange },
         -- Function calls and definitions.
@@ -317,7 +317,7 @@ function theme.highlights(colors, config)
         -- GOTO labels: `label:` in C, and `::label::` in Lua.
         ["@label"] = { fg = colors.cyan },
         -- Method calls and definitions.
-        ["@method"] = { fg = colors.gray, style = config.styles.functions },
+        ["@method"] = { fg = colors.dark_cyan, style = config.styles.functions },
         -- Identifiers referring to modules and namespaces.
         ["@namespace"] = { fg = colors.olive },
         -- Numeric literals that don't fit into other categories.
@@ -385,7 +385,7 @@ function theme.highlights(colors, config)
         -- Built-in types: `i32` in Rust.
         ["@type.builtin"] = { fg = colors.orange },
         -- Variable names that don't fit into other categories.
-        ["@variable"] = { fg = colors.dark_cyan, style = config.styles.variables },
+        ["@variable"] = { fg = colors.fg, style = config.styles.variables },
         -- Variable names defined by the language: `this` or `self` in Javascript.
         ["@variable.builtin"] = { fg = colors.red, style = config.styles.variables },
       }

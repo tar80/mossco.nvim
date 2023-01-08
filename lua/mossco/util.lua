@@ -5,6 +5,7 @@ local util = {}
 -- Highlight the given group according to the color values
 function util.highlight(group, colors)
   local hl = {}
+
   if colors.fg then
     hl["fg"] = colors.fg
   end
