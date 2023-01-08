@@ -307,7 +307,7 @@ function theme.highlights(colors, config)
         -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
         ["@include"] = { fg = colors.dark_cyan },
         -- Keywords that don't fit into other categories.
-        ["@keyword"] = { fg = colors.blue, style = config.styles.keywords },
+        ["@keyword"] = { fg = colors.gray, style = config.styles.keywords },
         -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
         ["@keyword.function"] = { fg = colors.olive, style = config.styles.keywords },
         -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
