@@ -15,7 +15,7 @@ function theme.highlights(colors, config)
       -- struct, union, enum, etc.
       Structure = { fg = colors.purple },
       -- any constant
-      Constant = { fg = colors.olive },
+      Constant = { fg = colors.fg },
       -- any character constant: 'c', '\n'
       Character = { fg = colors.green },
       -- a number constant: 5
@@ -299,9 +299,9 @@ function theme.highlights(colors, config)
         -- Floating-point number literals.
         ["@float"] = { fg = colors.orange },
         -- Function calls and definitions.
-        ["@function"] = { fg = colors.cyan, style = config.styles.functions },
+        ["@function"] = { fg = colors.blue, style = config.styles.functions },
         -- Built-in functions: `print` in Lua.
-        ["@function.builtin"] = { fg = colors.cyan, style = config.styles.functions },
+        ["@function.builtin"] = { fg = colors.light_green, style = config.styles.functions },
         -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
         ["@function.macro"] = { fg = colors.dark_cyan },
         -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
@@ -325,7 +325,7 @@ function theme.highlights(colors, config)
         -- Binary or unary operators: `+`, and also `->` and `*` in C.
         ["@operator"] = { fg = colors.pink },
         -- Parameters of a function.
-        ["@parameter"] = { fg = colors.blue },
+        ["@parameter"] = { fg = colors.cyan },
         -- References to parameters of a function.
         ["@parameter.reference"] = { fg = colors.red },
         -- Same as `TSField`.

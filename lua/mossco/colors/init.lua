@@ -1,14 +1,12 @@
-local fresh = require("mossco.colors.fresh")
-local stale = require("mossco.colors.stale")
-
 local function load()
   local theme = require("mossco.config").options.theme
+  local themes = { "fresh", "stale", "decay" }
 
-  if not theme then
+  if not vim.tbl_contains(themes, theme) then
     theme = "fresh"
   end
 
-  return theme ~= "fresh" and stale or fresh
+  return require("mossco.colors." .. theme)
 end
 
 return { load = load }
