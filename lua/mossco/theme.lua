@@ -59,7 +59,7 @@ function theme.highlights(colors, config)
       -- text that stands out, HTML links
       Underlined = { fg = colors.green, style = "underline" },
       -- left blank, hidden
-      Ignore = { fg = colors.gray, bg = colors.bg, style = "bold" },
+      Ignore = { fg = colors.dark_pink, bg = colors.bg, style = "bold" },
       -- any erroneous construct
       Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
@@ -95,9 +95,9 @@ function theme.highlights(colors, config)
     -- Editor highlight groups
     local editor = {
       -- normal text and background color for floating windows
-      NormalFloat = { fg = colors.fg, bg = colors.active },
+      NormalFloat = { fg = colors.fg, bg = colors.float },
       -- floating window border
-      FloatBorder = { fg = colors.blue, bg = colors.active },
+      FloatBorder = { fg = colors.blue, bg = colors.float },
       -- used for the columns set with 'colorcolumn'
       ColorColumn = { fg = colors.none, bg = colors.float },
       -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -185,7 +185,7 @@ function theme.highlights(colors, config)
       TablineSel = { fg = colors.cyan, bg = colors.bg },
       Tabline = { fg = colors.dark_purple, bg = colors.border },
       -- titles for output from ":set all", ":autocmd" etc.
-      Title = { fg = colors.green, bg = colors.none, style = "bold" },
+      Title = { fg = colors.fg, bg = colors.float, style = "bold" },
       -- Visual mode selection
       Visual = { fg = colors.none, bg = colors.selection },
       -- Visual mode selection when vim is "Not Owning the Selection".
@@ -220,7 +220,7 @@ function theme.highlights(colors, config)
       healthWarning = { fg = colors.warn },
       -- normal text and background color
       Normal = { fg = colors.fg, bg = colors.bg },
-      NormalNC = { bg = colors.bg },
+      NormalNC = { bg = colors.bg_light },
       SignColumn = { fg = colors.fg, bg = colors.none },
       -- the column separating vertically split windows
       VertSplit = { fg = colors.border },
@@ -236,8 +236,8 @@ function theme.highlights(colors, config)
     -- Set non-current background
     if config.fade_nc then
       editor.NormalNC["bg"] = colors.bg_light
-      editor.NormalFloat["bg"] = colors.highlight
-      editor.FloatBorder["bg"] = colors.highlight
+      editor.NormalFloat["bg"] = colors.float
+      editor.FloatBorder["bg"] = colors.float
     end
 
     -- Set transparent background

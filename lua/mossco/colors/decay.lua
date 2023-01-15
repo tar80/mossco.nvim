@@ -6,7 +6,7 @@ local colors = {
   dark_gray =   "#777B7B",
   gray =        "#939796",
   dark_cyan =   "#77949A",
-  cyan =        "#92C6CE",
+  cyan =        "#82B7BF",
   dark_blue =   "#718096",
   blue =        "#97ABC8",
   dark_green =  "#7D8B7C",
@@ -16,13 +16,13 @@ local colors = {
   red =         "#CD7B8F",
   light_red =   "#F37F9E",
   dark_pink =   "#B07E8D",
-  pink =        "#DBA1AE",
+  pink =        "#C688A0",
   dark_orange = "#977361",
-  orange =      "#DCA47F",
+  orange =      "#CC9977",
   dark_olive =  "#918369",
-  olive =       "#D0C097",
+  olive =       "#BDB08A",
   dark_purple = "#896F91",
-  purple =      "#C487C8",
+  purple =      "#A188A8",
   none = "NONE",
 }
 
@@ -41,8 +41,8 @@ colors.diff_remove_bg = "#2F1627"
 colors.diff_text_bg = "#175242"
 
 colors.active = "#11384D"
-colors.float = "#134046"
-colors.highlight = "#0e2a2f"
+colors.highlight = "#134046"
+colors.float = "#0e2a2f"
 colors.border = "#173334"
 colors.selection = "#225867"
 

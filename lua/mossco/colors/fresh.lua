@@ -41,8 +41,8 @@ colors.diff_remove_bg = "#2F1627"
 colors.diff_text_bg = "#175242"
 
 colors.active = "#11384D"
-colors.float = "#134046"
-colors.highlight = "#0e2a2f"
+colors.highlight = "#134046"
+colors.float = "#0e2a2f"
 colors.border = "#173334"
 colors.selection = "#225867"
 
