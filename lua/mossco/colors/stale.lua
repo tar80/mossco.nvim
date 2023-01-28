@@ -32,11 +32,11 @@ colors.warn = colors.olive
 colors.info = colors.blue
 colors.hint = colors.purple
 
-colors.diff_add = colors.blue
+colors.diff_add = "#5A8B8D"
 colors.diff_add_bg = "#072932"
-colors.diff_change = colors.green
+colors.diff_change = "#558A78"
 colors.diff_change_bg = "#0A2C25"
-colors.diff_remove = colors.red
+colors.diff_remove = "#7B6B77"
 colors.diff_remove_bg = "#2F1627"
 colors.diff_text_bg = "#175242"
 

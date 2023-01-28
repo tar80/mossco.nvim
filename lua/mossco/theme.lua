@@ -109,11 +109,11 @@ function theme.highlights(colors, config)
       -- directory names (and other special names in listings)
       Directory = { fg = colors.blue, bg = colors.none },
       -- diff mode: Added line
-      DiffAdd = { fg = colors.gray, bg = colors.diff_add_bg },
+      DiffAdd = { fg = colors.diff_add, bg = colors.diff_add_bg },
       -- diff mode: Changed line
-      DiffChange = { fg = colors.gray, bg = colors.diff_change_bg },
+      DiffChange = { fg = colors.diff_change, bg = colors.diff_change_bg },
       -- diff mode: Deleted line
-      DiffDelete = { fg = colors.diff_remove_bg, bg = colors.diff_remove_bg },
+      DiffDelete = { fg = colors.diff_remove, bg = colors.diff_remove_bg },
       -- diff mode: Changed text within a changed line
       DiffText = { fg = colors.none, bg = colors.diff_text_bg },
       -- error messages
