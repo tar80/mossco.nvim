@@ -53,7 +53,7 @@ function theme.highlights(colors, config)
       -- character that needs attention like , or .
       Delimiter = { fg = colors.dark_olive },
       -- special things inside a comment
-      SpecialComment = { fg = colors.dark_gray },
+      SpecialComment = { fg = colors.dark_cyan },
       -- debugging statements
       Debug = { fg = colors.olive },
       -- text that stands out, HTML links
@@ -61,7 +61,7 @@ function theme.highlights(colors, config)
       -- left blank, hidden
       Ignore = { fg = colors.dark_pink, bg = colors.bg, style = "bold" },
       -- any erroneous construct
-      Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
+      Error = { fg = colors.error, bg = colors.none, style = "bold" },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
       Todo = { fg = colors.olive, bg = colors.none, style = "bold" },
       Comment = { fg = colors.dark_gray, style = config.styles.comments }, -- normal comments
@@ -76,16 +76,16 @@ function theme.highlights(colors, config)
       -- any variable name
       Identifier = { fg = colors.fg, style = config.styles.variables },
       -- any string
-      String = { fg = colors.green, bg = colors.bg, config.styles.strings },
+      String = { fg = colors.green, config.styles.strings },
       -- diff
-      diffAdded = { fg = colors.diff_add },
-      diffRemoved = { fg = colors.diff_remove },
-      diffChanged = { fg = colors.diff_change },
-      diffOldFile = { fg = colors.yellow },
-      diffNewFile = { fg = colors.orange },
-      diffFile = { fg = colors.blue },
-      diffLine = { fg = colors.light_gray },
-      diffIndexLine = { fg = colors.purple },
+      diffAdded = { fg = colors.green, bg = colors.diff_change_bg },
+      diffRemoved = { fg = colors.red, bg = colors.diff_remove_bg },
+      diffChanged = { fg = colors.green },
+      -- diffOldFile = { link = "comment" },
+      diffFile = { link = "comment" },
+      -- diffFile = { fg = colors.olive },
+      diffLine = { fg = colors.purple },
+      diffIndexLine = { fg = colors.orange },
     }
 
     return syntax
@@ -133,9 +133,9 @@ function theme.highlights(colors, config)
       -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
       MatchParen = { fg = colors.olive, bg = colors.none, style = "bold" },
       -- 'showmode' message (e.g., "-- INSERT -- ")
-      ModeMsg = { fg = colors.blue, style = "bold" },
+      ModeMsg = { fg = colors.blue },
       -- |more-prompt|
-      MoreMsg = { fg = colors.blue, style = "bold" },
+      MoreMsg = { fg = colors.blue },
       -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist
       -- in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
       -- See also |hl-EndOfBuffer|.

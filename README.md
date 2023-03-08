@@ -29,7 +29,7 @@ Set the values you want to change from the default values.
 
 ```lua
 require("mossco").setup({
-    theme = "fresh", -- "fresh" or "stale" can be selected. Default is "fresh"
+    theme = "fresh", -- "fresh" or "stale" and "decay" can be selected. Default is "fresh"
     borders = true, -- Split window border color
     fade_nc = false, -- Fade non-current windows, making them more distinguishable
     fade_no_bg = false, -- Enables fade_nc and makes the current background transparent
