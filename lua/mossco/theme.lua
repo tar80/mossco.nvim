@@ -78,8 +78,8 @@ function theme.highlights(colors, config)
       -- any string
       String = { fg = colors.green, config.styles.strings },
       -- diff
-      diffAdded = { fg = colors.green, bg = colors.diff_change_bg },
-      diffRemoved = { fg = colors.red, bg = colors.diff_remove_bg },
+      diffAdded = { fg = colors.green },
+      diffRemoved = { fg = colors.red },
       diffChanged = { fg = colors.green },
       -- diffOldFile = { link = "comment" },
       diffFile = { link = "comment" },
@@ -552,6 +552,12 @@ function theme.highlights(colors, config)
     if config.plugins.eft then
       p["EftChar"] = { fg = colors.orange, style = "underline" }
       p["EftSubChar"] = { fg = colors.dark_orange, style = "underline" }
+    end
+    if config.plugins.fret then
+      p["FretConfirm"] = { fg = colors.light_red }
+      p["FretCandidate"] = { fg = colors.dark_red }
+      p["FretIgnore"] = { link = 'Comment' }
+      p["FretAlternative"] = { fg = colors.bg, bg = colors.red }
     end
     if config.plugins.gina then
       p["GinaActionMarkSelected"] = { fg = colors.green }
