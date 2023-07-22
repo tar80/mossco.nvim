@@ -21,6 +21,7 @@ Plugins supports provided by onenord. And,
 - [Feline](https://github.com/feline-nvim/feline.nvim)
 - [Gina](https://github.com/lambdalisue/gina.vim)
 - [Vim-eft](https://github.com/hrsh7th/vim-eft)
+- [Fret](https://github.com/tar80/fret.nvim)
 
 ## Configuration
 
@@ -58,6 +59,7 @@ require("mossco").setup({
         agit = false,
         confilct_marker = false,
         eft = false,
+        fret = false,
         gina = false,
         fuzzy_motion = false,
         cmp = false,

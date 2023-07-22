@@ -453,7 +453,7 @@ function theme.highlights(colors, config)
         -- used for "Error" diagnostic messages in the diagnostics float
         LspDiagnosticsFloatingError = { fg = colors.error },
         -- Virtual text "Error"
-        LspDiagnosticsVirtualTextError = { fg = colors.dark_pink },
+        LspDiagnosticsVirtualTextError = { fg = colors.dark_pink, bg = colors.diff_remove_bg },
         -- used to underline "Error" diagnostics.
         LspDiagnosticsUnderlineError = { style = config.styles.diagnostics, sp = colors.error },
         -- used for "Warning" diagnostic signs in sign column
@@ -463,7 +463,7 @@ function theme.highlights(colors, config)
         -- used for "Warning" diagnostic messages in the diagnostics float
         LspDiagnosticsFloatingWarning = { fg = colors.warn },
         -- Virtual text "Warning"
-        LspDiagnosticsVirtualTextWarning = { fg = colors.dark_olive },
+        LspDiagnosticsVirtualTextWarning = { fg = colors.dark_olive, bg = colors.diff_change_bg },
         -- used to underline "Warning" diagnostics.
         LspDiagnosticsUnderlineWarning = { style = config.styles.diagnostics, sp = colors.warn },
         -- used for "Information" diagnostic virtual text
@@ -483,7 +483,7 @@ function theme.highlights(colors, config)
         -- used for "Hint" diagnostic messages in the diagnostics float
         LspDiagnosticsFloatingHint = { fg = colors.hint },
         -- Virtual text "Hint"
-        LspDiagnosticsVirtualTextHint = { fg = colors.dark_purple },
+        LspDiagnosticsVirtualTextHint = { fg = colors.dark_purple, bg = colors.diff_add_bg },
         -- used to underline "Hint" diagnostics.
         LspDiagnosticsUnderlineHint = { style = config.styles.diagnostics, sp = colors.hint },
         -- used for highlighting "text" references
@@ -556,7 +556,7 @@ function theme.highlights(colors, config)
     if config.plugins.fret then
       p["FretConfirm"] = { fg = colors.light_red }
       p["FretCandidate"] = { fg = colors.dark_red }
-      p["FretIgnore"] = { link = 'Comment' }
+      p["FretIgnore"] = { link = "Comment" }
       p["FretAlternative"] = { fg = colors.bg, bg = colors.red }
     end
     if config.plugins.gina then
@@ -565,7 +565,7 @@ function theme.highlights(colors, config)
     if config.plugins.fuzzy_motion then
       p["FuzzyMotionShade"] = { fg = colors.dark_gray }
       p["FuzzyMotionChar"] = { fg = colors.bg, bg = colors.pink }
-      p["FuzzyMotionSubChar"] = { fg = colors.pink }
+      p["FuzzyMotionSubChar"] = { fg = colors.pink, style = "underline" }
       p["FuzzyMotionMatch"] = { fg = colors.olive }
     end
     if config.plugins.cmp then
