@@ -18,7 +18,7 @@ local colors = {
   dark_pink =   "#B07E8D",
   pink =        "#C688A0",
   dark_orange = "#977361",
-  orange =      "#CC9977",
+  orange =      "#CB9F82",
   dark_olive =  "#918369",
   olive =       "#BDB08A",
   dark_purple = "#896F91",
@@ -43,7 +43,7 @@ colors.diff_text_bg = "#184438"
 colors.active = "#11384D"
 colors.highlight = "#134046"
 colors.float = "#0e2a2f"
-colors.border = "#173334"
+colors.border = "#193536"
 colors.selection = "#225867"
 
 return colors

@@ -594,6 +594,14 @@ function theme.highlights(colors, config)
       p["CmpItemKindStruct"] = { fg = colors.olive }
       p["CmpItemKindTypeParameter"] = { fg = colors.olive }
     end
+    if config.plugins.skkeleton_indicator then
+      p["SkkeletonIndicatorEiji"] = { fg = colors.bg_light, bg = colors.blue }
+      p["SkkeletonIndicatorHira"] = { fg = colors.bg_light, bg = colors.light_green }
+      p["SkkeletonIndicatorKata"] = { fg = colors.bg_light, bg = colors.olive }
+      p["SkkeletonIndicatorHankata"] = { fg = colors.bg_light, bg = colors.orange }
+      p["SkkeletonIndicatorZenkaku"] = { fg = colors.bg_light, bg = colors.orange }
+      p["SkkeletonIndicatorAbbrev"] = { fg = colors.bg_light, bg = colors.purple }
+    end
     if config.plugins.dashboard then
       p["DashboardShortCut"] = { fg = colors.cyan }
       p["DashboardHeader"] = { fg = colors.blue }
@@ -652,14 +660,14 @@ function theme.highlights(colors, config)
       p["GitSignsDeleteLn"] = { fg = colors.diff_remove } -- diff mode: Deleted line |diff.txt|
     end
     if config.plugins.telescope then
-      p["TelescopeNormal"] = { fg = colors.fg, bg = colors.bg }
+      p["TelescopeNormal"] = { fg = colors.gray, bg = colors.bg }
       p["TelescopePromptPrefix"] = { fg = colors.light_green }
       p["TelescopePromptCounter"] = { fg = colors.dark_gray }
       p["TelescopePromptBorder"] = { fg = colors.gray, bg = colors.bg }
       p["TelescopeResultsBorder"] = { fg = colors.gray, bg = colors.bg }
       p["TelescopePreviewBorder"] = { fg = colors.gray, bg = colors.bg }
       p["TelescopeSelectionCaret"] = { fg = colors.cyan, bg = colors.selection }
-      p["TelescopeSelection"] = { bg = colors.selection }
+      p["TelescopeSelection"] = { fg = colors.fg, bg = colors.selection }
       p["TelescopeMultiIcon"] = { fg = colors.green }
       p["TelescopeMatching"] = { fg = colors.pink }
     end
