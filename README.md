@@ -22,6 +22,7 @@ Plugins supports provided by onenord. And,
 - [Gina](https://github.com/lambdalisue/gina.vim)
 - [Vim-eft](https://github.com/hrsh7th/vim-eft)
 - [Fret](https://github.com/tar80/fret.nvim)
+- [Skkeleton_indicator](https://github.com/delphinus/skkeleton_indicator.nvim)
 
 ## Configuration
 
@@ -62,6 +63,7 @@ require("mossco").setup({
         fret = false,
         gina = false,
         fuzzy_motion = false,
+        skkeleton_indicator = false,
         cmp = false,
         dashboard = false,
         notify = false,
