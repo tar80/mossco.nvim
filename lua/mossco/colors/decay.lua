@@ -1,8 +1,8 @@
 local colors = {
-  fg =          "#BCBFBE",
+  fg =          "#B6B9B8",
   fg_light =    "#D2D4D3",
   bg =          "#001B1B",
-  bg_light =    "#002222",
+  bg_light =    "#002828",
   dark_gray =   "#777B7B",
   gray =        "#939796",
   dark_cyan =   "#77949A",
@@ -32,11 +32,11 @@ colors.warn = colors.olive
 colors.info = colors.blue
 colors.hint = colors.purple
 
-colors.diff_add = "#5A8B8D"
+colors.diff_add = "#4E9090"
 colors.diff_add_bg = "#072932"
-colors.diff_change = "#6B9587"
+colors.diff_change = "#669782"
 colors.diff_change_bg = "#0F2928"
-colors.diff_remove = "#7B6B77"
+colors.diff_remove = "#A07A8E"
 colors.diff_remove_bg = "#2F1C31"
 colors.diff_text_bg = "#184438"
 
@@ -45,5 +45,6 @@ colors.highlight = "#134046"
 colors.float = "#0e2a2f"
 colors.border = "#193536"
 colors.selection = "#225867"
+-- colors.shadow = "#31605E"
 
 return colors

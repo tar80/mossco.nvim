@@ -77,15 +77,6 @@ function theme.highlights(colors, config)
       Identifier = { fg = colors.fg, style = config.styles.variables },
       -- any string
       String = { fg = colors.green, config.styles.strings },
-      -- diff
-      diffAdded = { fg = colors.green },
-      diffRemoved = { fg = colors.red },
-      diffChanged = { fg = colors.green },
-      -- diffOldFile = { link = "comment" },
-      diffFile = { link = "comment" },
-      -- diffFile = { fg = colors.olive },
-      diffLine = { fg = colors.purple },
-      diffIndexLine = { fg = colors.orange },
     }
 
     return syntax
@@ -94,10 +85,18 @@ function theme.highlights(colors, config)
   local function load_editor()
     -- Editor highlight groups
     local editor = {
+      -- normal text and background color
+      Normal = { fg = colors.fg, bg = colors.bg },
+      -- normal text and background color for non-current windows
+      NormalNC = { bg = colors.bg },
       -- normal text and background color for floating windows
-      NormalFloat = { fg = colors.fg, bg = colors.float },
+      NormalFloat = { fg = colors.fg, bg = colors.bg },
       -- floating window border
-      FloatBorder = { fg = colors.blue, bg = colors.float },
+      FloatBorder = { link = "Normal" },
+      -- floating window title
+      FloatTitle = { link = "Normal" },
+      -- used for the columns set with 'signcolumn'
+      SignColumn = { fg = colors.fg, bg = colors.none },
       -- used for the columns set with 'colorcolumn'
       ColorColumn = { fg = colors.none, bg = colors.float },
       -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -218,13 +217,18 @@ function theme.highlights(colors, config)
       healthError = { fg = colors.error },
       healthSuccess = { fg = colors.green },
       healthWarning = { fg = colors.warn },
-      -- normal text and background color
-      Normal = { fg = colors.fg, bg = colors.bg },
-      NormalNC = { bg = colors.bg_light },
-      SignColumn = { fg = colors.fg, bg = colors.none },
       -- the column separating vertically split windows
       VertSplit = { fg = colors.border },
       EndOfBuffer = { fg = colors.gray },
+      -- diff
+      diffAdded = { fg = colors.green },
+      diffRemoved = { fg = colors.red },
+      diffChanged = { fg = colors.green },
+      diffOldFile = { link = "diffRemoved" },
+      diffNewFile = { link = "diffAdded" },
+      diffFile = { link = "comment" },
+      diffLine = { fg = colors.purple },
+      diffIndexLine = { fg = colors.orange },
     }
 
     -- Options:
@@ -235,9 +239,8 @@ function theme.highlights(colors, config)
 
     -- Set non-current background
     if config.fade_nc then
+      -- editor.NormalFloat["bg"] = colors.float
       editor.NormalNC["bg"] = colors.bg_light
-      editor.NormalFloat["bg"] = colors.float
-      editor.FloatBorder["bg"] = colors.float
     end
 
     -- Set transparent background
@@ -494,6 +497,34 @@ function theme.highlights(colors, config)
         LspReferenceWrite = { bg = colors.border, style = config.styles.references },
         LspSignatureActiveParameter = { fg = colors.none, bg = colors.highlight, style = "bold" },
         LspCodeLens = { fg = colors.dark_gray },
+        LspInlayHint = { fg = colors.selection, style = "italic,bold" },
+
+        ["@lsp.type.namespace"] = { link = "@namespace" },
+        ["@lsp.type.type"] = { link = "@type" },
+        ["@lsp.type.class"] = { link = "@type" },
+        ["@lsp.type.enum"] = { link = "@type" },
+        ["@lsp.type.interface"] = { link = "@type" },
+        ["@lsp.type.struct"] = { link = "@type" },
+        ["@lsp.type.typeParameter"] = { link = "@type" },
+        ["@lsp.type.parameter"] = { link = "@parameter" },
+        ["@lsp.type.variable"] = { link = "@variable" },
+        ["@lsp.type.property"] = { link = "@property" },
+        ["@lsp.type.enumMember"] = { link = "@constant" },
+        ["@lsp.type.function"] = { link = "@function" },
+        ["@lsp.type.method"] = { link = "@method" },
+        ["@lsp.type.macro"] = { link = "@constant.macro" },
+        ["@lsp.type.keyword"] = { link = "@keyword" },
+        ["@lsp.type.comment"] = { link = "@comment" },
+        ["@lsp.type.string"] = { link = "@string" },
+        ["@lsp.type.number"] = { link = "@number" },
+        ["@lsp.type.regexp"] = { link = "@string.regex" },
+        ["@lsp.type.operator"] = { link = "@operator" },
+        ["@lsp.type.decorator"] = { link = "@function.macro" },
+        ["@lsp.mod.deprecated"] = { style = "strikethrough" },
+        ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+        ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+
         DiagnosticError = { link = "LspDiagnosticsDefaultError" },
         DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
         DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
@@ -593,6 +624,8 @@ function theme.highlights(colors, config)
       p["CmpItemKindConstant"] = { fg = colors.purple }
       p["CmpItemKindStruct"] = { fg = colors.olive }
       p["CmpItemKindTypeParameter"] = { fg = colors.olive }
+      p["CmpItemKindCopilot"] = { fg = colors.green }
+      p["CmpGhostText"] = { fg = colors.selection, style = "italic" }
     end
     if config.plugins.skkeleton_indicator then
       p["SkkeletonIndicatorEiji"] = { fg = colors.bg_light, bg = colors.blue }
@@ -627,9 +660,17 @@ function theme.highlights(colors, config)
       p["NotifyTRACETitle"] = { fg = colors.hint }
     end
     if config.plugins.trouble then
-      p["TroubleCount"] = { fg = colors.purple }
+      p["TroubleFile"] = { fg = colors.purple }
+      p["TroubleCount"] = { fg = colors.pink }
       p["TroubleNormal"] = { fg = colors.fg }
       p["TroubleText"] = { fg = colors.fg }
+      p["TroubleLocation"] = { fg = colors.cyan }
+      p["TroubleFoldIcon"] = { fg = colors.purple }
+      p["TroubleIndent"] = { fg = colors.dark_gray }
+      p["TroubleTextError"] = { link = "DiagnosticError" }
+      p["TroubleTextWarning"] = { link = "DiagnosticWarn" }
+      p["TroubleTextInformation"] = { fg = colors.blue }
+      p["TroubleTextHint"] = { link = "DiagnosticHint" }
     end
     if config.plugins.neogit then
       p["NeogitBranch"] = { fg = colors.purple }
@@ -660,16 +701,21 @@ function theme.highlights(colors, config)
       p["GitSignsDeleteLn"] = { fg = colors.diff_remove } -- diff mode: Deleted line |diff.txt|
     end
     if config.plugins.telescope then
-      p["TelescopeNormal"] = { fg = colors.gray, bg = colors.bg }
+      p["TelescopeNormal"] = { fg = colors.dark_gray, bg = colors.bg }
       p["TelescopePromptPrefix"] = { fg = colors.light_green }
-      p["TelescopePromptCounter"] = { fg = colors.dark_gray }
-      p["TelescopePromptBorder"] = { fg = colors.gray, bg = colors.bg }
-      p["TelescopeResultsBorder"] = { fg = colors.gray, bg = colors.bg }
-      p["TelescopePreviewBorder"] = { fg = colors.gray, bg = colors.bg }
-      p["TelescopeSelectionCaret"] = { fg = colors.cyan, bg = colors.selection }
-      p["TelescopeSelection"] = { fg = colors.fg, bg = colors.selection }
+      p["TelescopePromptCounter"] = { fg = colors.gray }
+      p["TelescopeSelectionCaret"] = { fg = colors.cyan, bg = colors.active }
+      p["TelescopeSelection"] = { fg = colors.blue, bg = colors.active }
       p["TelescopeMultiIcon"] = { fg = colors.green }
-      p["TelescopeMatching"] = { fg = colors.pink }
+      p["TelescopeMultiSelection"] = { fg = colors.fg_light }
+      p["TelescopeMatching"] = { fg = colors.light_red }
+      -- p["TelescopePromptBorder"] = { link = "NormalNC" }
+      -- p["TelescopeResultsBorder"] = { link = "TelescopePromptBorder" }
+      -- p["TelescopePreviewBorder"] = { link = "TelescopePromptBorder" }
+      -- p["TelescopeTitle"] = { link = "NormalNC" }
+      -- p["TelescopeResultsTitle"] = { link = "TelescopeTitle" }
+      -- p["TelescopePromptTitle"] = { link = "TelescopeTitle" }
+      -- p["TelescopePreviewTitle"] = { link = "TelescopeTitle" }
     end
     if config.plugins.nvimtree then
       p["NvimTreeSymlink"] = { fg = colors.cyan, style = "bold" }

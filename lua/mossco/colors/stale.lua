@@ -36,7 +36,7 @@ colors.diff_add = "#5A8B8D"
 colors.diff_add_bg = "#072932"
 colors.diff_change = "#558A78"
 colors.diff_change_bg = "#0A2C25"
-colors.diff_remove = "#7B6B77"
+colors.diff_remove = "#A07A8E"
 colors.diff_remove_bg = "#2F1627"
 colors.diff_text_bg = "#175242"
 
