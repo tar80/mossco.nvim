@@ -304,7 +304,7 @@ function theme.highlights(colors, config)
         -- Function calls and definitions.
         ["@function"] = { fg = colors.blue, style = config.styles.functions },
         -- Built-in functions: `print` in Lua.
-        ["@function.builtin"] = { fg = colors.light_green, style = config.styles.functions },
+        ["@function.builtin"] = { fg = colors.cyan, style = config.styles.functions },
         -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
         ["@function.macro"] = { fg = colors.dark_cyan },
         -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
@@ -390,7 +390,7 @@ function theme.highlights(colors, config)
         -- Variable names that don't fit into other categories.
         ["@variable"] = { fg = colors.fg, style = config.styles.variables },
         -- Variable names defined by the language: `this` or `self` in Javascript.
-        ["@variable.builtin"] = { fg = colors.red, style = config.styles.variables },
+        ["@variable.builtin"] = { fg = colors.cyan, style = config.styles.variables },
       }
     else
       -- Standard filetype highlight groups
