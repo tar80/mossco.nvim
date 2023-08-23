@@ -32,6 +32,7 @@ local defaults = {
     fuzzy_motion = false,
     cmp = false,
     skkeleton_indicator = false,
+    sandwich = false,
     dashboard = false,
     notify = false,
     trouble = false,

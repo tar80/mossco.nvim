@@ -15,7 +15,7 @@ function theme.highlights(colors, config)
       -- struct, union, enum, etc.
       Structure = { fg = colors.purple },
       -- any constant
-      Constant = { fg = colors.fg },
+      Constant = { fg = colors.orange },
       -- any character constant: 'c', '\n'
       Character = { fg = colors.green },
       -- a number constant: 5
@@ -247,6 +247,7 @@ function theme.highlights(colors, config)
     if config.disable.background then
       remove_background(editor.Normal)
       remove_background(editor.NormalNC)
+      remove_background(editor.NormalFloat)
       remove_background(editor.SignColumn)
     end
 
@@ -634,6 +635,11 @@ function theme.highlights(colors, config)
       p["SkkeletonIndicatorHankata"] = { fg = colors.bg_light, bg = colors.orange }
       p["SkkeletonIndicatorZenkaku"] = { fg = colors.bg_light, bg = colors.orange }
       p["SkkeletonIndicatorAbbrev"] = { fg = colors.bg_light, bg = colors.purple }
+    end
+    if config.plugins.sandwich then
+      p["OperatorSandwichAdd"] =    {fg= colors.fg_light, bg = colors.highlight}
+      p["OperatorSandwichChange"] = {fg= colors.fg_light, bg = colors.highlight}
+      p["OperatorSandwichDelete"] = {fg= colors.bg, bg = colors.orange}
     end
     if config.plugins.dashboard then
       p["DashboardShortCut"] = { fg = colors.cyan }
