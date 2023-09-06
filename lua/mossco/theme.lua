@@ -247,7 +247,7 @@ function theme.highlights(colors, config)
     if config.disable.background then
       remove_background(editor.Normal)
       remove_background(editor.NormalNC)
-      remove_background(editor.NormalFloat)
+      -- remove_background(editor.NormalFloat)
       remove_background(editor.SignColumn)
     end
 
@@ -587,6 +587,7 @@ function theme.highlights(colors, config)
     end
     if config.plugins.fret then
       p["FretConfirm"] = { fg = colors.light_red }
+      p["FretConfirmSub"] = { fg = colors.dark_red, style = "underline" }
       p["FretCandidate"] = { fg = colors.dark_red }
       p["FretIgnore"] = { link = "Comment" }
       p["FretAlternative"] = { fg = colors.bg, bg = colors.red }
@@ -596,15 +597,15 @@ function theme.highlights(colors, config)
     end
     if config.plugins.fuzzy_motion then
       p["FuzzyMotionShade"] = { fg = colors.dark_gray }
-      p["FuzzyMotionChar"] = { fg = colors.bg, bg = colors.pink }
-      p["FuzzyMotionSubChar"] = { fg = colors.pink, style = "underline" }
+      p["FuzzyMotionChar"] = { fg = colors.bg, bg = colors.light_red }
+      p["FuzzyMotionSubChar"] = { fg = colors.light_red, style = "underline" }
       p["FuzzyMotionMatch"] = { fg = colors.olive }
     end
     if config.plugins.cmp then
       p["CmpItemAbbr"] = { fg = colors.fg }
-      p["CmpItemAbbrDeprecated"] = { fg = colors.fg }
+      p["CmpItemAbbrDeprecated"] = { fg = colors.fg, style = "underline" }
       p["CmpItemAbbrMatch"] = { fg = colors.pink, style = "bold" }
-      p["CmpItemAbbrMatchFuzzy"] = { fg = colors.pink, style = "underline" }
+      p["CmpItemAbbrMatchFuzzy"] = { fg = colors.pink, style = "bold" }
       p["CmpItemMenu"] = { fg = colors.dark_gray }
       p["CmpItemKind"] = { fg = colors.olive }
       p["CmpItemKindText"] = { fg = colors.cyan }
@@ -637,9 +638,9 @@ function theme.highlights(colors, config)
       p["SkkeletonIndicatorAbbrev"] = { fg = colors.bg_light, bg = colors.purple }
     end
     if config.plugins.sandwich then
-      p["OperatorSandwichAdd"] =    {fg= colors.fg_light, bg = colors.highlight}
-      p["OperatorSandwichChange"] = {fg= colors.fg_light, bg = colors.highlight}
-      p["OperatorSandwichDelete"] = {fg= colors.bg, bg = colors.orange}
+      p["OperatorSandwichAdd"] = { fg = colors.fg_light, bg = colors.highlight, style = "bold" }
+      p["OperatorSandwichChange"] = { fg = colors.fg_light, bg = colors.highlight, style = "bold" }
+      p["OperatorSandwichDelete"] = { fg = colors.bg, bg = colors.orange, style = "bold" }
     end
     if config.plugins.dashboard then
       p["DashboardShortCut"] = { fg = colors.cyan }
@@ -819,8 +820,16 @@ function theme.highlights(colors, config)
       p["IndentBlanklineContextChar"] = { fg = colors.purple, style = "nocombine" }
     end
     if config.plugins.dap then
-      p["DapBreakpoint"] = { fg = colors.red }
-      p["DapStopped"] = { fg = colors.green }
+      p["DapBreakpoint"] = { fg = colors.light_red }
+      p["DapBreakpointCondition"] = { fg = colors.purple }
+      p["DapBreakpointRejected"] = { fg = colors.light_green }
+      p["DapStopped"] = { fg = colors.light_red }
+    end
+    if config.plugins["dap-virtual-text"] then
+      p["NvimDapVirtualText"] = { fg = colors.dark_purple, bg = colors.diff_remove_bg }
+      p["NvimDapVirtualTextInfo"] = { fg = colors.bg, bg = colors.red }
+      p["NvimDapVirtualTextChanged"] = { fg = colors.blue, bg = colors.diff_remove_bg }
+      p["NvimDapVirtualTextError"] = { fg = colors.light_red, bg = colors.diff_remove_bg }
     end
     if config.plugins.illuminate then
       p["illuminatedWord"] = { bg = colors.highlight }
